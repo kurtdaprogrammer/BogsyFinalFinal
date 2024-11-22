@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BogsyFinalFinal.Models.RentalViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rental List</h1>
+
+<p>
+    <a asp-action="Create">Add Rent</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)  <!-- Adjust based on ViewModel properties -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoTitle)  <!-- Use VideoTitle from ViewModel -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReturned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalRentalPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CustomerName  <!-- Adjust based on actual property if needed -->
+                </td>
+                <td>
+                    @item.VideoTitle  <!-- Use VideoTitle from ViewModel -->
+                </td>
+                <td>
+                    @item.RentalDate.ToShortDateString()  <!-- Format the date if needed -->
+                </td>
+                <td>
+                    @item.ReturnDate?.ToShortDateString()  <!-- Format the date if needed -->
+                </td>
+                <td>
+                    @item.IsReturned
+                </td>
+                <td>
+                    @(item.TotalRentalPrice.HasValue ? item.TotalRentalPrice.Value.ToString("C") : "Not Calculated")
+                </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RentalID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.RentalID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.RentalID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

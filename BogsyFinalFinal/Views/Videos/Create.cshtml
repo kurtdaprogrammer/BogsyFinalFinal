@@ -1,0 +1,80 @@
+﻿@model BogsyFinalFinal.Models.Videos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Videos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <br />
+                <select asp-for="Category" class="form-control" id="Category" onchange="updateFieldsBasedOnCategory()">
+                    <option value="VCD">VCD</option>
+                    <option value="DVD">DVD</option>
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxDays" class="control-label"></label>
+                <input asp-for="MaxDays" class="form-control" />
+                <span asp-validation-for="MaxDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentalPrice" class="control-label"></label>
+                <input asp-for="RentalPrice" class="form-control" readonly />
+                <span asp-validation-for="RentalPrice" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Function to update MaxDays and RentalPrice based on Category
+        function updateFieldsBasedOnCategory() {
+            var category = document.getElementById("Category").value;
+            var rentalPrice = document.getElementById("RentalPrice");
+            var maxDays = document.getElementById("MaxDays");
+
+            if (category === "VCD") {
+                rentalPrice.value = 25;  // VCD rental price
+                maxDays.value = 3;      // Max days for VCD
+            } else if (category === "DVD") {
+                rentalPrice.value = 50;  // DVD rental price
+                maxDays.value = 3;      // Max days for DVD
+            }
+        }
+
+        // Initialize the fields when the page loads
+        window.onload = updateFieldsBasedOnCategory;
+    </script>
+}

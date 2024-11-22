@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogsyFinalFinal", "BogsyFinalFinal\BogsyFinalFinal.csproj", "{2B88B70C-D317-4926-A602-0453A2F92859}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B88B70C-D317-4926-A602-0453A2F92859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B88B70C-D317-4926-A602-0453A2F92859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B88B70C-D317-4926-A602-0453A2F92859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B88B70C-D317-4926-A602-0453A2F92859}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5784F03F-88BE-4742-A886-CA0559F7FF0A}
+	EndGlobalSection
+EndGlobal
